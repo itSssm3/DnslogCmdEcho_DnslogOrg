@@ -1,10 +1,11 @@
 # DnslogCmdEcho_DnslogOrg
-命令执行不回显但DNS协议出网的命令回显场景解决方案(回显更换为dnslog.org版本)
+命令执行不回显但DNS协议出网的命令回显场景解决方案（回显平台更换为dnslog.org并优化）
 
 # 使用
 - python3 HexDnsEcho.py //本机执行
 - python3 CommandGen.py whoami
 - python3 CommandGen.py "ls /var/www" //将输出的对应命令在目标机器上执行
+
 ![image](images/image1.png)
 
 # Linux
