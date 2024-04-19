@@ -13,6 +13,7 @@ commandHex = {}
 
 def get_new_config():
     global domain,token,lastFinishTime,commandStartPos,commandEndPos,lastRecordLen,finishOnce
+    # NOTE change the Dns-Platform-Url if u need
     url = 'https://dnslog.org/new_gen'
     data = { 'domain' : 'dnslog.store.' }
     dataResult = json.loads(requests.post(url, data=data).text)
@@ -61,17 +62,14 @@ def deal_data(data: list):
 
             hexCommand = [ item[1][:32] for item in hexCommand]
         except:
-            print('!!!!Error Command format! Try to find DNSLog site(https://dnslog.org/\{token\}) to get conntent..')
+            print('!!!!Error Command format! Try to find DNSLog site(https://dnslog.org/{token}) to get conntent..')
             pass
         print(hexCommand)
-        hexCommand[-1] = ''.join(hexCommand[-1].split('0d0a')[:-1])
         commandResult = ''.join(hexCommand)
-        # print(commandResult)
-        try:
-            commandResult = commandResult.split("0a3131")
-            commandResult = commandResult[0] # 兼容linux命令
-        except:
-            pass
+        print(commandResult)
+        commandResult = commandResult.split("0a313131")
+        commandResult = commandResult[0] # 本就可兼容windows与linux命令 有的可能会多几个111在最后显示 但三个111可以增加显示容错 影响不大
+
         print('\n----Command Result----')
         Head = '\033[36m'
         End = '\033[0m'
@@ -96,6 +94,7 @@ if __name__ == '__main__':
             print('\r', 'Wait DNSLog data: {}s...'.format(str(i)), end='') 
             time.sleep(1)
         try:
+            # NOTE change the Dns-Platform-Url if u need
             data = { 'domain' : 'dnslog.store.' }
             url = 'https://dnslog.org/{}'.format(token)
             # proxies = { 'http':'http://127.0.0.1:8080' }

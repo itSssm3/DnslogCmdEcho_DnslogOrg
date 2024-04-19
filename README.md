@@ -19,3 +19,4 @@
 - https://github.com/sv3nbeast/DnslogCmdEcho
 - 本项目主要是针对原本代码中的 "http://dig.pm/" 如今完全不适配的问题，进行了更换dns回显平台并修改了HexDnsEcho.py的相关代码
 - 还于CommandGen.py中补充了当所需要执行的命令中含有空格情况下的处理
+- 更新：参考了[HexDnsEchoT](https://github.com/A0WaQ4/HexDnsEchoT#2023-08-20-%E6%9D%A5%E8%87%AAr0fus0dno-github%E5%B8%88%E5%82%85%E7%9A%84%E6%9B%B4%E6%96%B0-%E6%94%AF%E6%8C%81odxxd)(感谢A0WaQ4与No-Github师傅)中的思路，增加linux中用od，xxd命令替换hexdump的命令输出
